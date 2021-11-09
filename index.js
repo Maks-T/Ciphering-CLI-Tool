@@ -1,8 +1,6 @@
 const { chiperData } = require("./chiper-module");
-const { isConfigFlag, getConfigStr, checkConfig } = require("./config-module");
-const { messagesError } = require("./constans");
+const { getConfigStr } = require("./config-module");
 const { errorHandler } = require("./error-handler-module");
-const { InvalidArgError } = require("./invalid-arg-error");
 const { getCmdArgs } = require("./arguments-module");
 
 class App {
@@ -12,13 +10,7 @@ class App {
 
   run() {
     try {
-      if (!isConfigFlag(this.args)) {
-        throw new InvalidArgError(messagesError.argumentsAreMissing);
-      }
-
       const configStr = getConfigStr(this.args);
-
-      checkConfig(configStr);
 
       const testText = "ABC";
 

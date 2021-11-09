@@ -19,22 +19,13 @@ const checkNumberOfConfig = (numberOfConfig) => {
   }
 };
 
-module.exports.isConfigFlag = (args) => {
+const isConfigFlag = (args) => {
   if (!args) return false;
   const flagsOfConfig = args.filter(config);
 
   if (flagsOfConfig) numberOfConfig = flagsOfConfig.length;
 
   return checkNumberOfConfig(numberOfConfig);
-};
-
-module.exports.getConfigStr = (args) => {
-  const indexConfig = args.findIndex(config) + 1;
-
-  if (indexConfig >= args.length)
-    throw new InvalidArgError(messagesError.configIsMissing);
-
-  return args[indexConfig];
 };
 
 const isChiperFlag = (chiperFlag) => {
@@ -65,9 +56,26 @@ const checkChiperCode = (chiperCode) => {
   }
 };
 
-module.exports.checkConfig = (configStr) => {
+const checkConfig = (configStr) => {
   const chipersArr = configStr.split("-");
 
   if (!chipersArr.every(checkChiperCode))
     throw new InvalidArgError(messagesError.configIsIncorrect);
+};
+
+module.exports.getConfigStr = (args) => {
+  if (!isConfigFlag(args)) {
+    throw new InvalidArgError(messagesError.argumentsAreMissing);
+  }
+
+  const indexConfig = args.findIndex(config) + 1;
+
+  if (indexConfig >= args.length)
+    throw new InvalidArgError(messagesError.configIsMissing);
+
+  const configStr = args[indexConfig];
+
+  checkConfig(configStr);
+
+  return configStr;
 };
