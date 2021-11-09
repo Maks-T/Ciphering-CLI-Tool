@@ -41,4 +41,6 @@ module.exports.messagesError = {
   configIsIncorrect: "ERROR! The config is incorrect",
   argumentsAreMissing: "ERROR! arguments are missing",
   configIsMissing: "ERROR!The config is missing",
+  numberOfInputFlagFlagExceeded: "ERROR! Number of input flags exceeded",
+  fileNameInputIsMissing: "ERROR! file name INPUT is missing",
 };
