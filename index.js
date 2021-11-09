@@ -1,3 +1,5 @@
+const { chiperData } = require("./chiper-module");
+
 const encryptNames = {
   Caesar: "C",
   Atbash: "A",
@@ -9,6 +11,7 @@ const messagesError = {
   configFlagsAreMissing: "ERROR! Сonfig flags are missing",
   configIsIncorrect: "ERROR! The config is incorrect",
   argumentsAreMissing: "ERROR! arguments are missing",
+  configIsMissing: "ERROR!The config is missing",
 };
 
 function getCmdArgs() {
@@ -30,7 +33,7 @@ const errorHandler = (err) => {
   const { isCustom } = err;
 
   if (isCustom) {
-    console.log("errHandler:  ", err.message);
+    console.error("\x1b[31m%s\x1b[0m", "errHandler:  ", err.message);
     process.exit(1);
   } else {
     throw err;
@@ -55,9 +58,8 @@ const checkNumberOfConfig = (numberOfConfig) => {
 };
 
 const isConfigFlag = (args) => {
-  if (!args) return false; //нет никаких агументов
+  if (!args) return false;
   const flagsOfConfig = args.filter(config);
-  console.log(flagsOfConfig);
 
   if (flagsOfConfig) numberOfConfig = flagsOfConfig.length;
 
@@ -65,8 +67,11 @@ const isConfigFlag = (args) => {
 };
 
 const getConfigStr = (args) => {
-  if (args.length < 1) return false; //нет конфига
   const indexConfig = args.findIndex(config) + 1;
+
+  if (indexConfig >= args.length)
+    throw new InvalidArgError(messagesError.configIsMissing);
+
   return args[indexConfig];
 };
 
@@ -98,12 +103,11 @@ checkChiperCode = (chiperCode) => {
   }
 };
 
-getChipersArr = (configStr) => {
+checkChipersArr = (configStr) => {
   const chipersArr = configStr.split("-");
 
-  chipersArr.forEach(checkChiperCode);
-
-  return chipersArr;
+  if (!chipersArr.every(checkChiperCode))
+    throw new InvalidArgError(messagesError.configIsIncorrect);
 };
 
 class App {
@@ -119,9 +123,11 @@ class App {
 
       const configStr = getConfigStr(this.args);
 
-      const chipersArr = getChipersArr(configStr);
+      checkChipersArr(configStr);
 
-      console.log("chipers", chipersArr);
+      const testText = "ABC";
+
+      console.log(chiperData(testText, configStr));
     } catch (e) {
       errorHandler(e);
     }
