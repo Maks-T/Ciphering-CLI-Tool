@@ -1,3 +1,6 @@
+const w = "\x1b[37m";
+const y = "\x1b[33m";
+
 module.exports.errorHandler = (err) => {
   const { isCustom } = err;
 
@@ -5,6 +8,7 @@ module.exports.errorHandler = (err) => {
     console.error(err.message);
     process.exit(1);
   } else {
-    throw err;
+    console.error(y + err.message + w);
+    process.exit(1);
   }
 };

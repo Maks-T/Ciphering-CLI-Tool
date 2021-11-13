@@ -18,7 +18,6 @@ class App {
       const arrChiper = getChipersCode(this.args);
 
       const customStreamCollection = arrChiper.map((chiperCode) => {
-        console.log("chiperCode", chiperCode);
         return new CustomTransform(chiperCode);
       });
 
@@ -27,7 +26,7 @@ class App {
 
       pipeline(inputStream, ...customStreamCollection, outputStream, (err) => {
         if (err) {
-          return console.error(err);
+          return errorHandler(err);
         }
       });
     } catch (e) {

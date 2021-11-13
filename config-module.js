@@ -14,7 +14,6 @@ const checkNumberOfConfig = (numberOfConfig) => {
   }
 
   if (numberOfConfig === 1) {
-    console.log("flags config correct");
     return true;
   }
 };

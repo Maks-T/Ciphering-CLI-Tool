@@ -40,7 +40,7 @@ const getOutputFileName = (args) => {
 module.exports.getOutput = (args) => {
   if (args && isOutputFlag(args)) {
     const fileNameOutput = getOutputFileName(args);
-    console.log("write file name : ", fileNameOutput);
+
     return new CustomWritable(fileNameOutput);
   } else {
     return process.stdout;
