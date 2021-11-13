@@ -1,6 +1,8 @@
 const { InvalidArgError } = require("./invalid-arg-error");
 const { CustomWritable } = require("./custom-writeable");
 
+const fs = require("fs");
+
 const { messagesError } = require("./constans");
 
 const flagOutput = (arg) => arg === "-o" || arg === "--output";
@@ -33,8 +35,21 @@ const getOutputFileName = (args) => {
   if (indexOutputFlag >= args.length) {
     throw new InvalidArgError(messagesError.fileNameOutputIsMissing);
   }
+
   //делать ли проверку существования файла
-  return args[indexOutputFlag];
+  const fileName = args[indexOutputFlag];
+
+  if (fileName === "-i" || fileName === "--input") {
+    throw new InvalidArgError(messagesError.fileNameOutputIsMissing);
+  }
+
+  try {
+    fs.accessSync(fileName);
+  } catch (e) {
+    throw new InvalidArgError(messagesError.fileOutputNotAccess);
+  }
+
+  return fileName;
 };
 
 module.exports.getOutput = (args) => {

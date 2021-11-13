@@ -3,11 +3,11 @@ const fs = require("fs");
 
 class CustomWritable extends Writable {
   constructor(filename) {
-    super({ flags: "a+" });
+    super();
     this.filename = filename;
   }
   _construct(callback) {
-    fs.open(this.filename, "r+", (err, fd) => {
+    fs.open(this.filename, "a+", (err, fd) => {
       if (err) {
         callback(err);
       } else {

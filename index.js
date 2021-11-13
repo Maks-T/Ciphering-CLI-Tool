@@ -17,16 +17,16 @@ class App {
     try {
       const arrChiper = getChipersCode(this.args);
 
+      const inputStream = getInput(this.args);
+      const outputStream = getOutput(this.args);
+
       const customStreamCollection = arrChiper.map((chiperCode) => {
         return new CustomTransform(chiperCode);
       });
 
-      const inputStream = getInput(this.args);
-      const outputStream = getOutput(this.args);
-
       pipeline(inputStream, ...customStreamCollection, outputStream, (err) => {
         if (err) {
-          return errorHandler(err);
+          return errorHandler(err.message);
         }
       });
     } catch (e) {

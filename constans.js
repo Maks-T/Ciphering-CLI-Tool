@@ -49,4 +49,6 @@ module.exports.messagesError = {
   fileNameInputIsMissing: `${r} ERROR! ${y}   file name INPUT is missing ${w}`,
   numberOfOutputFlagFlagExceeded: `${r} ERROR! ${y}   Number of OUTPUT flags exceeded ${w}`,
   fileNameOutputIsMissing: `${r} ERROR! ${y}   file name OUTPUT is missing ${w}`,
+  fileOutputNotAccess: `${r} ERROR! ${y}  file OUTPUT not access or not exist ${w}`,
+  fileInputNotAccess: `${r} ERROR! ${y}  file INPUT not access or not exist${w}`,
 };
