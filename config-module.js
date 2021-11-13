@@ -63,7 +63,7 @@ const checkConfig = (configStr) => {
     throw new InvalidArgError(messagesError.configIsIncorrect);
 };
 
-module.exports.getConfigStr = (args) => {
+const getConfigStr = (args) => {
   if (!isConfigFlag(args)) {
     throw new InvalidArgError(messagesError.argumentsAreMissing);
   }
@@ -78,4 +78,8 @@ module.exports.getConfigStr = (args) => {
   checkConfig(configStr);
 
   return configStr;
+};
+
+module.exports.getChipersCode = (args) => {
+  return getConfigStr(args).split("-");
 };

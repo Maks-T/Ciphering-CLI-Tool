@@ -1,4 +1,5 @@
 const { InvalidArgError } = require("./invalid-arg-error");
+const { CustomReadable } = require("./custom-readable");
 
 const { messagesError } = require("./constans");
 
@@ -26,16 +27,20 @@ const isInputFlag = (args) => {
   return checkNumberOfInputFlag(numberOfFlags);
 };
 
+const getInputFileName = (args) => {
+  const indexInputFlag = args.findIndex(flagInput) + 1;
+
+  if (indexInputFlag >= args.length) {
+    throw new InvalidArgError(messagesError.fileNameInputIsMissing);
+  }
+  //делать ли проверку существования файла
+  return args[indexInputFlag];
+};
+
 module.exports.getInput = (args) => {
   if (args && isInputFlag(args)) {
-    const indexInputFlag = args.findIndex(flagInput) + 1;
-
-    if (indexInputFlag >= args.length) {
-      throw new InvalidArgError(messagesError.fileNameInputIsMissing);
-    }
-
-    //читаем файл
-    return "aa1w3s";
+    const fileNameInput = getInputFileName(args);
+    return new CustomReadable(fileNameInput);
   } else {
     return process.stdin;
   }

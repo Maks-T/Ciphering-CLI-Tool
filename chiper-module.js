@@ -84,34 +84,31 @@ chiperCharAtbash = (data) => {
   return chiperFun(data, chiperIndexCharAtbash);
 };
 
-const chiperData = (data, configStr) => {
+const chiperData = (data, chiper) => {
   let transformData = data;
-  chipersArr = configStr.split("-");
 
-  chipersArr.forEach((chiper) => {
-    switch (chiper) {
-      case "C1": {
-        transformData = chiperCharCaesarDecode(transformData);
-        break;
-      }
-      case "C0": {
-        transformData = chiperCharCaesarEncode(transformData);
-        break;
-      }
-      case "A": {
-        transformData = chiperCharAtbash(transformData);
-        break;
-      }
-      case "R1": {
-        transformData = chiperCharROT8Decode(transformData);
-        break;
-      }
-      case "R0": {
-        transformData = chiperCharROT8Encode(transformData);
-        break;
-      }
+  switch (chiper) {
+    case "C1": {
+      transformData = chiperCharCaesarDecode(transformData);
+      break;
     }
-  });
+    case "C0": {
+      transformData = chiperCharCaesarEncode(transformData);
+      break;
+    }
+    case "A": {
+      transformData = chiperCharAtbash(transformData);
+      break;
+    }
+    case "R1": {
+      transformData = chiperCharROT8Decode(transformData);
+      break;
+    }
+    case "R0": {
+      transformData = chiperCharROT8Encode(transformData);
+      break;
+    }
+  }
 
   return transformData;
 };
