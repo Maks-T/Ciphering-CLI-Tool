@@ -35,14 +35,18 @@ module.exports.encryptNames = {
   ROT8: "R",
 };
 
+const r = "\x1b[31m";
+const w = "\x1b[37m";
+const y = "\x1b[33m";
+
 module.exports.messagesError = {
-  numberOfConfigFlagExceeded: "ERROR! Number of config flags exceeded",
-  configFlagsAreMissing: "ERROR! Сonfig flags are missing",
-  configIsIncorrect: "ERROR! The config is incorrect",
-  argumentsAreMissing: "ERROR! arguments are missing",
-  configIsMissing: "ERROR!The config is missing",
-  numberOfInputFlagFlagExceeded: "ERROR! Number of INPUT flags exceeded",
-  fileNameInputIsMissing: "ERROR! file name INPUT is missing",
-  numberOfOutputFlagFlagExceeded: "ERROR! Number of OUTPUT flags exceeded",
-  fileNameOutputIsMissing: "ERROR! file name OUTPUT is missing",
+  numberOfConfigFlagExceeded: ` ${r}  ERROR! ${y}   Number of Config flags  exceeded ${w}`,
+  configFlagsAreMissing: `${r} ERROR! ${y}  Сonfig flags are missing ${w}`,
+  configIsIncorrect: `${r} ERROR! ${y}   The Config is incorrect ${w}`,
+  argumentsAreMissing: `${r} ERROR! ${y}  Arguments are missing ${w}`,
+  configIsMissing: `${r} ERROR! ${y} The Config is missing ${w}`,
+  numberOfInputFlagFlagExceeded: `${r} ERROR! ${y}   Number of INPUT flags exceeded ${w}`,
+  fileNameInputIsMissing: `${r} ERROR! ${y}   file name INPUT is missing ${w}`,
+  numberOfOutputFlagFlagExceeded: `${r} ERROR! ${y}   Number of OUTPUT flags exceeded ${w}`,
+  fileNameOutputIsMissing: `${r} ERROR! ${y}   file name OUTPUT is missing ${w}`,
 };
