@@ -19,14 +19,13 @@ class App {
 
       const inputStream = getInput(this.args);
       const outputStream = getOutput(this.args);
-
       const customStreamCollection = arrChiper.map((chiperCode) => {
         return new CustomTransform(chiperCode);
       });
 
       pipeline(inputStream, ...customStreamCollection, outputStream, (err) => {
         if (err) {
-          return errorHandler(err.message);
+          return errorHandler(err);
         }
       });
     } catch (e) {
