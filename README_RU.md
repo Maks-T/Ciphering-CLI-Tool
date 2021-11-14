@@ -16,6 +16,7 @@
 7. node index --config "C1-C1-R0-A" --output "./output.txt"
 8. node index --config "C1-C1-R0-A" -i "input.txt" --output "./output.txt"
 9. node index --config "C1-C1-R0-A" --input "input.txt" -o "./output.txt"
+10. Другие комбинации смотрите описание
 ```
 
 ## Описание
