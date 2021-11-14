@@ -1,4 +1,4 @@
-# Инструкция
+# Instruction manual
 
 [Описание на русском](https://github.com/Maks-T/Ciphering-CLI-Tool/blob/Ciphering-CLI-Tool/README_RU.md)
 
