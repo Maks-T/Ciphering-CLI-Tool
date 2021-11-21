@@ -8,11 +8,8 @@ class CustomWritable extends Writable {
   }
   _construct(callback) {
     fs.open(this.filename, "a+", (err, fd) => {
-      if (err) {
-        //callback(err);
-      } else {
+      if (!err) {
         this.fd = fd;
-        //callback();
       }
     });
   }
@@ -21,9 +18,7 @@ class CustomWritable extends Writable {
   }
   _destroy(err, callback) {
     if (this.fd) {
-      fs.close(this.fd, (er) => callback(er || err));
-    } else {
-      callback(err);
+      fs.close(this.fd);
     }
   }
 }

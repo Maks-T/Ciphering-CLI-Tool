@@ -2,13 +2,13 @@ const fs = jest.createMockFromModule("fs");
 
 open = (filename, flags, cb) => {
   if (filename) {
-    if (filename === "NonFile") {
-      cb(err, (fd = null));
+    if (filename === "NonFileExist") {
+      cb("NonFileExist", (fd = null));
     } else {
       cb(null, (fd = 1));
     }
   } else {
-    throw new Error("111111 No file or directory name passed");
+    cb("NonFile", (fd = null));
   }
 };
 
