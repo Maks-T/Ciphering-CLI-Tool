@@ -9,10 +9,10 @@ class CustomWritable extends Writable {
   _construct(callback) {
     fs.open(this.filename, "a+", (err, fd) => {
       if (err) {
-        callback(err);
+        //callback(err);
       } else {
         this.fd = fd;
-        callback();
+        //callback();
       }
     });
   }

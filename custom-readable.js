@@ -8,7 +8,7 @@ class CustomReadable extends Readable {
     this.fd = null;
   }
   _construct(callback) {
-    fs.open(this.filename, (err, fd) => {
+    fs.open(this.filename, "r", (err, fd) => {
       if (err) {
         callback(err);
       } else {
@@ -31,7 +31,7 @@ class CustomReadable extends Readable {
     if (this.fd) {
       fs.close(this.fd, (er) => callback(er || err));
     } else {
-      callback(err);
+      //callback(err);
     }
   }
 }
