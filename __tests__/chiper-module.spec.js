@@ -30,7 +30,7 @@ describe("Encode and Decode transformData Error scenarios", () => {
   });
 });
 
-describe("Encode and Decode transformData Success scenarios", () => {
+describe("Take cipher usage scenarios from first task description usage examples", () => {
   const getTrasformData = (cfg, td) => {
     cfg.split("-").forEach((chiper) => {
       td = chiperData(td, chiper);
