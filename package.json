@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-4q2021-task2",
+  "version": "1.0.0",
+  "description": "[description](https://github.com/Maks-T/NodeJS-4Q2021/tree/Ciphering-CLI-Tool-Testing)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "cover": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maks-T/NodeJS-4Q2021.git"
+  },
+  "author": "Maksim Tsatsura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maks-T/NodeJS-4Q2021/issues"
+  },
+  "homepage": "https://github.com/Maks-T/NodeJS-4Q2021#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
