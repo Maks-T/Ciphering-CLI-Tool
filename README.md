@@ -10,19 +10,22 @@ Ways to run the test:
 
 Running testing:
 
-```npm test
+```
+npm test
 
 ```
 
 Running detailed testing
 
-```npm test -- --verbose
+```
+npm test -- --verbose
 
 ```
 
 Running coverage
 
-```npm run cover
+```
+npm run cover
 
 ```
 

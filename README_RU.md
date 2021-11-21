@@ -8,19 +8,22 @@
 
 Запуск тестирования:
 
-```npm test
+```
+npm test
 
 ```
 
 Запуск подробного тестирования
 
-```npm test -- --verbose
+```
+npm test -- --verbose
 
 ```
 
 Запуск расчета покрытия
 
-```npm run cover
+```
+npm run cover
 
 ```
 
