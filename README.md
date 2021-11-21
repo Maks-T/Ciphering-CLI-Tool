@@ -1,6 +1,6 @@
 # Instruction manual
 
-[Описание на русском](https://github.com/Maks-T/NodeJS-4Q2021/blob/Ciphering-CLI-Tool/README_RU.md)
+[Описание на русском](https://github.com/Maks-T/NodeJS-4Q2021/blob/Ciphering-CLI-Tool-Testing/README_RU.md)
 
 ## Running the test
 
